@@ -31,8 +31,8 @@ namespace App
                 new Bird("Kyle")
             };
 
-            //IWalks exampleAnimal = new Lion("Jim");
-            //exampleAnimal.Walk();
+            IWalks exampleAnimal = new Lion("Jim");
+            exampleAnimal.Walk();
 
             var flyingCreatures = new List<IFlies>();
             var walkingCreatures = new List<IWalks>();
