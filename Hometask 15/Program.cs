@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text;
 
 // 1. Use new and old syntax ✅
-// 2. Use record types
+// 2. Use record types ✅
 // 3. Ranges & indices ✅
 // 4. * Create an interface with default implementation
 //      and create two classes which would implement it ✅
@@ -84,8 +84,22 @@ namespace App
             {
                 Console.WriteLine(ClassifyByAge(item));
             }
-       
 
+            var records = new List<Movie>
+            {
+                new Movie(42, "Alien", 8.8, 1.2),
+                new Movie(8, "Godfather", 9.2, 2.11),
+                new Movie(16, "Avengers", 9.0, 2.48),
+                new Movie(39, "Interstellar", 9.1, 3.04),
+                new Movie(11, "Spiritted Away", 9.3, 2.11),
+            };
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("\n---- Records Overwritten ToString Method ----");
+            foreach (var item in records)
+            {
+                Console.WriteLine(item);
+            }
 
         }
 
@@ -111,7 +125,7 @@ namespace App
         public void Walk() => Console.WriteLine("I'M walking..??");
     }
 
-    class Animal
+    record Animal
     {
         public string Name { get; set; }
 
@@ -126,24 +140,28 @@ namespace App
         }
     }
 
-    class Lion : Animal, IWalks
+    record Lion : Animal, IWalks
     {
         public Lion(string name) : base(name)
         {
         }
     }
 
-    class Dog : Animal, IWalks
+    record Dog : Animal, IWalks
     {
         public Dog(string name) : base(name)
         {
         }
     }
 
-    class Bird : Animal, IFlies
+    record Bird : Animal, IFlies
     {
         public Bird(string name) : base(name)
         {
         }
+
     }
+
+    public record Movie (int Id, string Name, double Rate, double Duration);
 }
+
