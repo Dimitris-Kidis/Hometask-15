@@ -8,6 +8,7 @@ using System.Text;
 // 4. * Create an interface with default implementation
 //      and create two classes which would implement it ✅
 // 5. Use pattern matching features ✅
+// 6. Static local functions ✅
 
 
 namespace App
@@ -29,6 +30,9 @@ namespace App
                 new Bird("Kito"),
                 new Bird("Kyle")
             };
+
+            //IWalks exampleAnimal = new Lion("Jim");
+            //exampleAnimal.Walk();
 
             var flyingCreatures = new List<IFlies>();
             var walkingCreatures = new List<IWalks>();
@@ -101,6 +105,19 @@ namespace App
                 Console.WriteLine(item);
             }
 
+            var deg = 10000;
+            static double CelciusToFahrenheit (int deg)
+            {
+                return deg * 9 / 5 + 32;
+            }
+
+            var today = CelciusToFahrenheit(32);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\nToday's temp in F: " + today);
+
+
+
+            Console.ForegroundColor = ConsoleColor.Black;
         }
 
         public static string ClassifyByAge(int item) => item switch
